@@ -1,12 +1,12 @@
 import env from 'dotenv';
-export const app = express();
+env.config();
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import authRouter from './Routes/authRoutes.js'
 import { userRouter } from './Routes/userRoutes.js';
 import cors from "cors"
 import productsRouter from './Routes/productsRoutes.js';
-env.config();
+export const app = express();
 app.use(cors({
     origin: "http://localhost:5173",
     credentials: true
