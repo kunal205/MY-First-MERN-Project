@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 export const getAllUsers = createAsyncThunk("getAllUsers", async (thunkAPI) => {
     try {
-        let data = await axios.get("http://localhost:5000/api/user/current", { withCredentials: true });
+        let data = await axios.get(`${import.meta.env.VITE_API_URL}/user/current`, { withCredentials: true });
         return data
     } catch (error) {
         const message = error.response?.data?.message || error.message;
@@ -11,7 +11,7 @@ export const getAllUsers = createAsyncThunk("getAllUsers", async (thunkAPI) => {
 })
 export const isCurrentUser = createAsyncThunk("isCurrentUser", async (thunkAPI) => {
     try {
-        let res = await axios.get("http://localhost:5000/api/user/current")
+        let res = await axios.get(`${import.meta.env.VITE_API_URL}/user/current`)
         return res.data
     } catch (error) {
         const message = error.response?.data?.message || error.message;
@@ -20,7 +20,7 @@ export const isCurrentUser = createAsyncThunk("isCurrentUser", async (thunkAPI) 
 })
 export const addUser = createAsyncThunk("addUser", async (formdata, thunkAPI) => {
     try {
-        let res = await axios.post("http://localhost:5000/api/auth/signup", formdata, {
+        let res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, formdata, {
             headers: { "Content-Type": "multipart/form-data" },
             withCredentials: true,
 
@@ -35,7 +35,7 @@ export const addUser = createAsyncThunk("addUser", async (formdata, thunkAPI) =>
 });
 export const userLogIn = createAsyncThunk("loginUser", async (data, thunkAPI) => {
     try {
-        let res = await axios.post("http://localhost:5000/api/auth/signin", data, {
+        let res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signin`, data, {
             // headers: { "Content-Type": "multipart/form-data" },
             withCredentials: true,
         });

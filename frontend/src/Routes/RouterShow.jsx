@@ -8,7 +8,7 @@ import Adminpanel from "../Components/AdminPanel.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { isCurrentUser } from "../utility/UserSLice.js";
 import SingleProduct from "../Components/SingleProduct.jsx";
-import WishList from "../Components/wishList.jsx";
+import WishList from "../Components/WishList.jsx";
 import AddToCart from "../Components/addToCart.jsx";
 import BuyNow from "../Components/buyNow.jsx";
 const RouterShow = () => {

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 export const getAllProducts = createAsyncThunk("getAllProducts", async () => {
     try {
-        const res = await axios.get("http://localhost:5000/api/products/allproduct", { withCredentials: true });
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/products/allproduct`, { withCredentials: true });
         return (res.data.products);
     } catch (error) {
         console.log(error.message)
@@ -11,7 +11,7 @@ export const getAllProducts = createAsyncThunk("getAllProducts", async () => {
 
 export const getSingleProducts = createAsyncThunk("getSingleProducts", async (id) => {
     try {
-        const res = await axios.get(`http://localhost:5000/api/products/singleproduct/${id}`, { withCredentials: true });
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/products/singleproduct/${id}`, { withCredentials: true });
         return (res.data.products);
     } catch (error) {
         console.log(error.message)
